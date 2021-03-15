@@ -17,7 +17,9 @@ export class EntradaComponent implements OnInit {
 
     this.entrada = {
       titulo: '',
-      resumen: ''
+      resumen: '',
+
+
     }
 
 

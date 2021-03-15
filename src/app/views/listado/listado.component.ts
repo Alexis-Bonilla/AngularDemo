@@ -1,3 +1,4 @@
+import { EntradaService } from './../../shared/entrada.service';
 import { Entrada } from './../../shared/interfaces/entrada';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,31 +11,34 @@ import { Component, OnInit } from '@angular/core';
 export class ListadoComponent implements OnInit {
 
 
-  public listadoEntradas: Entrada[];
+  public listadoEntradas: any;
 
 
-  constructor() {
-    this.listadoEntradas = [
-      {
-        titulo: 'Hola soy una entrada de prueba 1',
-        resumen: 'Este es el resumen de la entrada de prueba número 1'
-      },
-      {
-        titulo: 'Hola soy una entrada de prueba 2',
-        resumen: 'Este es el resumen de la entrada de prueba número 2'
-      },
-      {
-        titulo: 'Hola soy una entrada de prueba 3',
-        resumen: 'Este es el resumen de la entrada de prueba número 3'
-      }
-    ];
+  constructor(private entradaService: EntradaService) {
 
 
    }
 
   ngOnInit(): void {
+
+    this.recuperarEntradas();
   }
 
+  private recuperarEntradas():void{
+    this.entradaService.recuperarEntradas().subscribe((data)=> {
+      this.listadoEntradas= data;
+
+    },(error)=>{
+
+    },()=>{
+
+
+    }
+
+    )
+
+
+  }
 
   public mostrarTitulo(titulo:String):void{
     alert("Entrada seleccionada: "+ titulo)
