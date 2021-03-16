@@ -1,3 +1,4 @@
+import { EntradaService } from './shared/entrada.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -24,7 +25,7 @@ import { AcercaDeNosotrosComponent } from './views/acerca-de-nosotros/acerca-de-
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClientModule,EntradaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

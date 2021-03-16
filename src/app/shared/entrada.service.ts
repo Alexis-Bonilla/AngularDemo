@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class EntradaService {
 
   constructor(private httpClient: HttpClient) { }
